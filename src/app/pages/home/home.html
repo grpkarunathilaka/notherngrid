@@ -1,6 +1,15 @@
 <div class="home-page animate-fade-in">
   <!-- Hero Section -->
   <section class="hero-section">
+    <!-- Carousel Background -->
+    <div class="hero-carousel">
+      @for (slide of slides; track $index) {
+        <div class="carousel-slide" [class.active]="currentSlide() === $index">
+          <img [src]="slide.image" [alt]="slide.title" class="carousel-img">
+        </div>
+      }
+    </div>
+
     <div class="hero-overlay"></div>
     <div class="container hero-container">
       <div class="hero-content">
@@ -14,18 +23,37 @@
         </div>
 
         <h1 class="hero-title">
-          Specialty Coffee & <br>
-          <span class="text-accent">Premium Dining</span> in Bundoora & Thomastown
+          {{ slides[currentSlide()].title }} <br>
+          <span class="text-accent">{{ slides[currentSlide()].titleAccent }}</span>
         </h1>
         
         <p class="hero-description">
-          Welcome to The Northern Grid Cafe. We roast specialty micro-lot beans in-house and serve artisan local brunch options with a passion for quality and community.
+          {{ slides[currentSlide()].description }}
         </p>
 
         <div class="hero-actions">
           <a routerLink="/menu" class="btn btn-primary">Explore Menu</a>
           <a routerLink="/bookings" class="btn btn-secondary">Reserve Table</a>
         </div>
+      </div>
+
+      <!-- Carousel Navigation & Indicators -->
+      <div class="carousel-controls">
+        <button class="carousel-nav-btn prev" (click)="prevSlide()" aria-label="Previous slide">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="carousel-indicators">
+          @for (slide of slides; track $index) {
+            <button class="indicator-dot" [class.active]="currentSlide() === $index" (click)="setSlide($index)" [aria-label]="'Go to slide ' + ($index + 1)"></button>
+          }
+        </div>
+        <button class="carousel-nav-btn next" (click)="nextSlide()" aria-label="Next slide">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
     </div>
   </section>
@@ -86,7 +114,7 @@
       <div class="section-header text-center">
         <span class="subtitle">HEARD ON THE GRID</span>
         <h2>What Our Community Says</h2>
-        <p class="section-desc">Over 450+ 5-star Google reviews from Bundoora and Thomastown locals.</p>
+        <p class="section-desc">Over 450+ 5-star Google reviews from Melbourne North locals.</p>
       </div>
 
       <div class="masonry-reviews">
@@ -105,7 +133,7 @@
             </div>
           </div>
           <p class="review-text">
-            "Absolutely the best coffee in the Bundoora area. The atmosphere is warm, and the staff are always smiling. The breakfast roll is a must-try!"
+            "Absolutely the best coffee in the Melbourne North area. The atmosphere is warm, and the staff are always smiling. The breakfast roll is a must-try!"
           </p>
         </div>
 
@@ -116,7 +144,7 @@
               <span class="user-avatar text-accent-bg">DK</span>
               <div>
                 <h4>David K.</h4>
-                <span class="review-date">Thomastown Local</span>
+                <span class="review-date">Melbourne North Local</span>
               </div>
             </div>
             <div class="stars">
@@ -157,7 +185,7 @@
       <p>We are located right on Plenty Road. Drop in for your morning brew or reserve a table for lunch.</p>
       <div class="banner-buttons">
         <a routerLink="/bookings" class="btn btn-primary">Book A Table</a>
-        <a href="https://maps.google.com/?q=The+Northern+Grid+Cafe+Bundoora" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Get Directions</a>
+        <a href="https://maps.google.com/?q=The+Northern+Grid+Cafe+Melbourne+North" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Get Directions</a>
       </div>
     </div>
   </section>

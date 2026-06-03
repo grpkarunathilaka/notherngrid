@@ -28,14 +28,14 @@ export class SchemaService {
         'https://thenortherngrid.com.au/assets/images/hero-bg.webp',
         'https://thenortherngrid.com.au/assets/images/cafe-interior.webp'
       ],
-      'description': 'Premium specialty coffee, artisan breakfast, and lunch serving Bundoora, Thomastown and the northern suburbs of Melbourne.',
+      'description': 'Premium specialty coffee, artisan breakfast, and lunch serving Melbourne North and the northern suburbs of Melbourne.',
       'telephone': '+61394671234',
       'priceRange': '$$',
       'servesCuisine': 'Australian, Cafe, Specialty Coffee, Breakfast, Lunch',
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': '1047 Plenty Road',
-        'addressLocality': 'Bundoora',
+        'addressLocality': 'Melbourne North',
         'addressRegion': 'VIC',
         'postalCode': '3083',
         'addressCountry': 'AU'

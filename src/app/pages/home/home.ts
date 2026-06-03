@@ -13,7 +13,32 @@ export class Home implements OnInit, OnDestroy {
   isOpen = signal<boolean>(false);
   statusText = signal<string>('Closed Now');
   scheduleDetails = signal<string>('Opens at 7:00 AM');
+  
+  // Carousel State
+  currentSlide = signal<number>(0);
+  slides = [
+    {
+      image: 'assets/images/coffee-carousel.png',
+      title: 'Specialty Coffee &',
+      titleAccent: 'Premium Dining',
+      description: 'Welcome to The Northern Grid Cafe. We roast specialty micro-lot beans in-house and serve artisan local brunch options in Melbourne North with a passion for quality and community.',
+    },
+    {
+      image: 'assets/images/brunch-carousel.png',
+      title: 'Artisan Ingredients &',
+      titleAccent: 'Seasonal Brunch',
+      description: 'Sourced from local Victorian farmers and prepared by our team of passionate chefs to bring you unforgettable flavor profiles.',
+    },
+    {
+      image: 'assets/images/interior-carousel.png',
+      title: 'A Welcoming Space for',
+      titleAccent: 'The Whole Community',
+      description: 'Centrally located in Melbourne\'s north, featuring a spacious indoor dining area and a sunny, pet-friendly outdoor courtyard.',
+    }
+  ];
+
   private statusInterval: any;
+  private carouselInterval: any;
 
   constructor(private schemaService: SchemaService) {}
 
@@ -28,12 +53,43 @@ export class Home implements OnInit, OnDestroy {
     this.statusInterval = setInterval(() => {
       this.updateOperatingStatus();
     }, 30000);
+
+    // Start carousel auto-play
+    this.startCarousel();
   }
 
   ngOnDestroy(): void {
     if (this.statusInterval) {
       clearInterval(this.statusInterval);
     }
+    this.stopCarousel();
+  }
+
+  startCarousel(): void {
+    this.carouselInterval = setInterval(() => {
+      this.nextSlide();
+    }, 6000);
+  }
+
+  stopCarousel(): void {
+    if (this.carouselInterval) {
+      clearInterval(this.carouselInterval);
+    }
+  }
+
+  nextSlide(): void {
+    this.currentSlide.update(idx => (idx + 1) % this.slides.length);
+  }
+
+  prevSlide(): void {
+    this.currentSlide.update(idx => (idx - 1 + this.slides.length) % this.slides.length);
+  }
+
+  setSlide(index: number): void {
+    this.currentSlide.set(index);
+    // Reset interval when user manually clicks to avoid immediate jump
+    this.stopCarousel();
+    this.startCarousel();
   }
 
   private updateOperatingStatus(): void {
