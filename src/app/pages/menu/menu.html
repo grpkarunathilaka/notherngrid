@@ -1,0 +1,123 @@
+<div class="menu-page animate-fade-in">
+  <!-- Page Header -->
+  <section class="menu-header-section text-center">
+    <div class="container">
+      <span class="subtitle">OUR SELECTIONS</span>
+      <h1>Our Kitchen & Espresso Bar</h1>
+      <p class="header-desc">Specialty coffee, delicious brunch, and lunch options crafted with passion.</p>
+    </div>
+  </section>
+
+  <!-- Sticky Sub-Header Anchor Navigation & Filter Controls -->
+  <div class="sticky-controls glass-panel">
+    <div class="container controls-container">
+      <!-- Category Jumps -->
+      <nav class="category-jumps">
+        <a href="#breakfast" class="jump-link">Breakfast</a>
+        <a href="#lunch" class="jump-link">Lunch</a>
+        <a href="#drinks" class="jump-link">Drinks</a>
+      </nav>
+
+      <!-- Dietary Filter Buttons -->
+      <div class="filter-toggles">
+        <button 
+          (click)="setFilter('all')" 
+          [class.active]="activeFilter() === 'all'" 
+          class="btn-filter">
+          Show All
+        </button>
+        <button 
+          (click)="setFilter('vegan')" 
+          [class.active]="activeFilter() === 'vegan'" 
+          class="btn-filter">
+          Vegan 🌱
+        </button>
+        <button 
+          (click)="setFilter('gf')" 
+          [class.active]="activeFilter() === 'gf'" 
+          class="btn-filter">
+          Gluten-Free 🌾
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu Content Section -->
+  <section class="menu-content-section py-section">
+    <div class="container">
+      <!-- Breakfast Category -->
+      <div id="breakfast" class="menu-category-section" *ngIf="hasItemsForCategory('Breakfast')">
+        <div class="category-header">
+          <h2>Breakfast</h2>
+          <span class="category-time">Served 7:00 AM - 11:30 AM</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item-card glass-panel" *ngFor="let item of getItemsByCategory('Breakfast')">
+            <div class="item-title-price">
+              <h3>{{ item.name }}</h3>
+              <span class="item-price">{{ item.price | currency:'USD':'symbol':'1.2-2' }}</span>
+            </div>
+            <p class="item-description">{{ item.description }}</p>
+            <div class="item-dietary-badges">
+              <span class="diet-badge vegan" *ngIf="item.isVegan" title="Vegan">VE</span>
+              <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lunch Category -->
+      <div id="lunch" class="menu-category-section" *ngIf="hasItemsForCategory('Lunch')">
+        <div class="category-header">
+          <h2>Lunch</h2>
+          <span class="category-time">Served 11:30 AM - Close</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item-card glass-panel" *ngFor="let item of getItemsByCategory('Lunch')">
+            <div class="item-title-price">
+              <h3>{{ item.name }}</h3>
+              <span class="item-price">{{ item.price | currency:'USD':'symbol':'1.2-2' }}</span>
+            </div>
+            <p class="item-description">{{ item.description }}</p>
+            <div class="item-dietary-badges">
+              <span class="diet-badge vegan" *ngIf="item.isVegan" title="Vegan">VE</span>
+              <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drinks Category -->
+      <div id="drinks" class="menu-category-section" *ngIf="hasItemsForCategory('Drinks')">
+        <div class="category-header">
+          <h2>Drinks & Espresso</h2>
+          <span class="category-time">Served All Day</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item-card glass-panel" *ngFor="let item of getItemsByCategory('Drinks')">
+            <div class="item-title-price">
+              <h3>{{ item.name }}</h3>
+              <span class="item-price">{{ item.price | currency:'USD':'symbol':'1.2-2' }}</span>
+            </div>
+            <p class="item-description">{{ item.description }}</p>
+            <div class="item-dietary-badges">
+              <span class="diet-badge vegan" *ngIf="item.isVegan" title="Vegan">VE</span>
+              <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No items found state -->
+      <div class="no-items-found text-center glass-panel" *ngIf="filteredItems().length === 0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="empty-icon">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+        <h3>No menu items match your filter</h3>
+        <p>Try switching to another dietary toggle to view our other items.</p>
+        <button (click)="setFilter('all')" class="btn btn-primary">Reset Filter</button>
+      </div>
+    </div>
+  </section>
+</div>

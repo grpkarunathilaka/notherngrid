@@ -1,0 +1,238 @@
+/* Menu Page Styles */
+
+.menu-header-section {
+  padding-top: calc(var(--header-height) + 3rem);
+  padding-bottom: 2.5rem;
+  background-color: var(--bg-primary);
+}
+
+.menu-header-section h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.header-desc {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+@media (min-width: 768px) {
+  .menu-header-section h1 {
+    font-size: 3.5rem;
+  }
+}
+
+/* Sticky Controls (Sub-Header) */
+.sticky-controls {
+  position: -webkit-sticky;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 900;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  background: rgba(26, 26, 26, 0.9);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  align-items: center;
+}
+
+.category-jumps {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.jump-link {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  padding: 0.25rem 0.5rem;
+  transition: var(--transition-fast);
+}
+
+.jump-link:hover {
+  color: var(--accent-red);
+}
+
+/* Filter Toggles */
+.filter-toggles {
+  display: flex;
+  gap: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+
+.btn-filter {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.btn-filter:hover {
+  color: var(--text-white);
+}
+
+.btn-filter.active {
+  background-color: var(--accent-red);
+  color: var(--text-white);
+  box-shadow: 0 2px 8px var(--accent-red-glow);
+}
+
+@media (min-width: 768px) {
+  .controls-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Menu Content Sections */
+.menu-category-section {
+  margin-bottom: 4rem;
+  scroll-margin-top: calc(var(--header-height) + 80px); /* Account for double headers */
+}
+
+.category-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.category-header h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-white);
+}
+
+.category-time {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Menu Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Menu Cards */
+.menu-item-card {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-normal);
+}
+
+.menu-item-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-medium);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.item-title-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.item-title-price h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.item-price {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--accent-red);
+}
+
+.item-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+/* Dietary Badges */
+.item-dietary-badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.diet-badge {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.diet-badge.vegan {
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.diet-badge.gf {
+  color: #F59E0B;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Empty State Styling */
+.no-items-found {
+  padding: 4rem 2rem;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.empty-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.no-items-found h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.no-items-found p {
+  margin-bottom: 1.5rem;
+}

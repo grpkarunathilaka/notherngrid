@@ -1,0 +1,72 @@
+<header class="glass-panel main-header">
+  <div class="container nav-container">
+    <!-- Logo -->
+    <a routerLink="/" class="logo" (click)="closeMobileMenu()">
+      <span class="logo-accent">THE</span> NORTHERN GRID
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="desktop-nav">
+      <ul class="nav-links">
+        <li>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </li>
+        <li>
+          <a routerLink="/menu" routerLinkActive="active">Menu</a>
+        </li>
+        <li>
+          <a routerLink="/about" routerLinkActive="active">About</a>
+        </li>
+        <li>
+          <a routerLink="/bookings" routerLinkActive="active" class="btn btn-primary nav-cta">Book A Table</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Hamburger Toggle Button -->
+    <button 
+      class="mobile-menu-toggle" 
+      (click)="toggleMobileMenu()" 
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      aria-label="Toggle Navigation Menu">
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        class="icon">
+        @if (isMobileMenuOpen()) {
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        } @else {
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="6" x2="20" y2="6"></line>
+          <line x1="4" y1="18" x2="20" y2="18"></line>
+        }
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Navigation Menu Overlay -->
+  <div class="mobile-nav-overlay" [ngClass]="{ 'open': isMobileMenuOpen() }">
+    <nav class="mobile-nav">
+      <ul class="mobile-nav-links">
+        <li>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">Home</a>
+        </li>
+        <li>
+          <a routerLink="/menu" routerLinkActive="active" (click)="closeMobileMenu()">Menu</a>
+        </li>
+        <li>
+          <a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">About</a>
+        </li>
+        <li>
+          <a routerLink="/bookings" routerLinkActive="active" class="btn btn-primary" (click)="closeMobileMenu()">Book A Table</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

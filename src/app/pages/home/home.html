@@ -1,0 +1,164 @@
+<div class="home-page animate-fade-in">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <!-- Live Status Badge -->
+        <div class="status-badge-container">
+          <span class="badge-status" [class.open]="isOpen()" [class.closed]="!isOpen()">
+            <span class="dot"></span>
+            {{ statusText() }}
+          </span>
+          <span class="status-subtext">{{ scheduleDetails() }}</span>
+        </div>
+
+        <h1 class="hero-title">
+          Specialty Coffee & <br>
+          <span class="text-accent">Premium Dining</span> in Bundoora & Thomastown
+        </h1>
+        
+        <p class="hero-description">
+          Welcome to The Northern Grid Cafe. We roast specialty micro-lot beans in-house and serve artisan local brunch options with a passion for quality and community.
+        </p>
+
+        <div class="hero-actions">
+          <a routerLink="/menu" class="btn btn-primary">Explore Menu</a>
+          <a routerLink="/bookings" class="btn btn-secondary">Reserve Table</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Highlights -->
+  <section class="py-section features-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">EXPERIENCE THE GRID</span>
+        <h2>Why Locals Choose Us</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card glass-panel">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+              <line x1="6" y1="1" x2="6" y2="4"></line>
+              <line x1="10" y1="1" x2="10" y2="4"></line>
+              <line x1="14" y1="1" x2="14" y2="4"></line>
+            </svg>
+          </div>
+          <h3>Specialty Coffee</h3>
+          <p>Sourced ethically and roasted to perfection. Explore our weekly rotating single-origin menu.</p>
+        </div>
+
+        <div class="feature-card glass-panel">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 8l-4 8h8z"></path>
+            </svg>
+          </div>
+          <h3>Local Ingredients</h3>
+          <p>Supporting Victorian farmers and suppliers with fresh, seasonal kitchen ingredients.</p>
+        </div>
+
+        <div class="feature-card glass-panel">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3>Community Hub</h3>
+          <p>A welcoming, vibrant space in the northern suburbs for catchups, remote work, and relaxation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Review Masonry Section -->
+  <section class="py-section reviews-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="subtitle">HEARD ON THE GRID</span>
+        <h2>What Our Community Says</h2>
+        <p class="section-desc">Over 450+ 5-star Google reviews from Bundoora and Thomastown locals.</p>
+      </div>
+
+      <div class="masonry-reviews">
+        <!-- Review 1 -->
+        <div class="review-card glass-panel">
+          <div class="review-header">
+            <div class="user-info">
+              <span class="user-avatar">SM</span>
+              <div>
+                <h4>Sarah Jenkins</h4>
+                <span class="review-date">Google Local Guide</span>
+              </div>
+            </div>
+            <div class="stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+          </div>
+          <p class="review-text">
+            "Absolutely the best coffee in the Bundoora area. The atmosphere is warm, and the staff are always smiling. The breakfast roll is a must-try!"
+          </p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card glass-panel">
+          <div class="review-header">
+            <div class="user-info">
+              <span class="user-avatar text-accent-bg">DK</span>
+              <div>
+                <h4>David K.</h4>
+                <span class="review-date">Thomastown Local</span>
+              </div>
+            </div>
+            <div class="stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+          </div>
+          <p class="review-text">
+            "Great atmosphere and super quick service. The vegan options are incredible. Highly recommend The Northern Grid for weekend family brunches!"
+          </p>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card glass-panel">
+          <div class="review-header">
+            <div class="user-info">
+              <span class="user-avatar">EL</span>
+              <div>
+                <h4>Emily Lawrie</h4>
+                <span class="review-date">Regular Patron</span>
+              </div>
+            </div>
+            <div class="stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+          </div>
+          <p class="review-text">
+            "A local gem. Beautiful outdoor seating area, outstanding specialty coffee, and a menu that never disappoints. Five stars easily."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="cta-banner py-section">
+    <div class="container text-center">
+      <h2>Join Us At The Grid</h2>
+      <p>We are located right on Plenty Road. Drop in for your morning brew or reserve a table for lunch.</p>
+      <div class="banner-buttons">
+        <a routerLink="/bookings" class="btn btn-primary">Book A Table</a>
+        <a href="https://maps.google.com/?q=The+Northern+Grid+Cafe+Bundoora" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Get Directions</a>
+      </div>
+    </div>
+  </section>
+</div>

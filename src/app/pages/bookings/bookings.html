@@ -1,0 +1,152 @@
+<div class="bookings-page animate-fade-in">
+  <section class="bookings-header text-center">
+    <div class="container">
+      <span class="subtitle">RESERVE A TABLE</span>
+      <h1>Book Your Table</h1>
+      <p class="header-desc">Plan your next dining experience at The Northern Grid. Simple, instant booking notifications.</p>
+    </div>
+  </section>
+
+  <section class="booking-form-section py-section">
+    <div class="container form-wrapper">
+      <div class="glass-panel form-card">
+        
+        <!-- Success Banner -->
+        <div class="alert alert-success" *ngIf="status() === 'success'">
+          <div class="alert-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h4>Booking Request Sent!</h4>
+            <p>Your request has been received. We will send a confirmation message to your mobile number shortly.</p>
+          </div>
+        </div>
+
+        <!-- Error Banner -->
+        <div class="alert alert-danger" *ngIf="status() === 'error'">
+          <div class="alert-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="15" y1="9" x2="9" y2="15"></line>
+              <line x1="9" y1="9" x2="15" y2="15"></line>
+            </svg>
+          </div>
+          <div>
+            <h4>Submission Failed</h4>
+            <p>{{ errorMessage() }}</p>
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" *ngIf="status() !== 'success'">
+          <div class="form-grid">
+            <!-- Full Name -->
+            <div class="form-group full-width">
+              <label for="name" class="form-label">Full Name</label>
+              <input 
+                id="name" 
+                type="text" 
+                formControlName="name" 
+                class="form-input" 
+                placeholder="e.g. John Doe"
+                [class.input-error]="isInvalid('name')">
+              <div class="error-msg" *ngIf="isInvalid('name')">
+                Please enter your name (minimum 2 characters).
+              </div>
+            </div>
+
+            <!-- Mobile Phone -->
+            <div class="form-group">
+              <label for="mobile" class="form-label">Mobile Number</label>
+              <input 
+                id="mobile" 
+                type="tel" 
+                formControlName="mobile" 
+                class="form-input" 
+                placeholder="e.g. 0412 345 678"
+                [class.input-error]="isInvalid('mobile')">
+              <div class="error-msg" *ngIf="isInvalid('mobile')">
+                Please enter a valid Australian mobile number.
+              </div>
+            </div>
+
+            <!-- Total Guests -->
+            <div class="form-group">
+              <label for="guests" class="form-label">Number of Guests</label>
+              <select 
+                id="guests" 
+                formControlName="guests" 
+                class="form-input select-input"
+                [class.input-error]="isInvalid('guests')">
+                <option value="" disabled>Select guest count</option>
+                <option *ngFor="let count of guestOptions" [value]="count">
+                  {{ count }} {{ count === 1 ? 'Guest' : 'Guests' }}
+                </option>
+              </select>
+              <div class="error-msg" *ngIf="isInvalid('guests')">
+                Please select guest count.
+              </div>
+            </div>
+
+            <!-- Date -->
+            <div class="form-group">
+              <label for="date" class="form-label">Preferred Date</label>
+              <input 
+                id="date" 
+                type="date" 
+                formControlName="date" 
+                class="form-input"
+                [class.input-error]="isInvalid('date')">
+              <div class="error-msg" *ngIf="isInvalid('date')">
+                Please select a valid date.
+              </div>
+            </div>
+
+            <!-- Time -->
+            <div class="form-group">
+              <label for="time" class="form-label">Preferred Time</label>
+              <select 
+                id="time" 
+                formControlName="time" 
+                class="form-input select-input"
+                [class.input-error]="isInvalid('time')">
+                <option value="" disabled>Select a timeslot</option>
+                <option *ngFor="let slot of timeSlots" [value]="slot">
+                  {{ slot }}
+                </option>
+              </select>
+              <div class="error-msg" *ngIf="isInvalid('time')">
+                Please select a preferred dining time.
+              </div>
+            </div>
+
+            <!-- Special Requests / Notes -->
+            <div class="form-group full-width">
+              <label for="notes" class="form-label">Special Requests (Optional)</label>
+              <textarea 
+                id="notes" 
+                formControlName="notes" 
+                class="form-input textarea-input" 
+                rows="3" 
+                placeholder="High chairs, dietary requirements, quiet table, etc."></textarea>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-actions">
+            <button 
+              type="submit" 
+              class="btn btn-primary btn-submit" 
+              [disabled]="status() === 'submitting'">
+              <span *ngIf="status() === 'submitting'" class="spinner"></span>
+              {{ status() === 'submitting' ? 'Submitting Request...' : 'Send Reservation Request' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
