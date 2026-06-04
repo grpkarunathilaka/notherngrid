@@ -38,7 +38,7 @@ jobs:
       - name: Build
         # NOTE: Replace 'MelbourneResturant' with your actual repository name on GitHub
         # if it is different (case-sensitive).
-        run: npx ng build --configuration production --base-href /MelbourneResturant/
+        run: npx ng build --configuration production --base-href /notherngrid/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
