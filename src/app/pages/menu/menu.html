@@ -53,9 +53,6 @@
         </div>
         <div class="menu-grid">
           <div class="menu-item-card glass-panel" *ngFor="let item of getItemsByCategory('Breakfast')">
-            <div class="item-image-wrapper">
-              <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy">
-            </div>
             <div class="item-content-wrapper">
               <div class="item-title-price">
                 <h3>{{ item.name }}</h3>
@@ -66,6 +63,9 @@
                 <span class="diet-badge vegan" *ngIf="item.isVegan" title="Vegan">VE</span>
                 <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
               </div>
+            </div>
+            <div class="item-image-wrapper">
+              <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy">
             </div>
           </div>
         </div>
@@ -79,9 +79,6 @@
         </div>
         <div class="menu-grid">
           <div class="menu-item-card glass-panel" *ngFor="let item of getItemsByCategory('Lunch')">
-            <div class="item-image-wrapper">
-              <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy">
-            </div>
             <div class="item-content-wrapper">
               <div class="item-title-price">
                 <h3>{{ item.name }}</h3>
@@ -92,6 +89,9 @@
                 <span class="diet-badge vegan" *ngIf="item.isVegan" title="Vegan">VE</span>
                 <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
               </div>
+            </div>
+            <div class="item-image-wrapper">
+              <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy">
             </div>
           </div>
         </div>
@@ -105,9 +105,6 @@
         </div>
         <div class="menu-grid">
           <div class="menu-item-card glass-panel" *ngFor="let item of getItemsByCategory('Drinks')">
-            <div class="item-image-wrapper">
-              <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy">
-            </div>
             <div class="item-content-wrapper">
               <div class="item-title-price">
                 <h3>{{ item.name }}</h3>
@@ -118,6 +115,9 @@
                 <span class="diet-badge vegan" *ngIf="item.isVegan" title="Vegan">VE</span>
                 <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
               </div>
+            </div>
+            <div class="item-image-wrapper">
+              <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy">
             </div>
           </div>
         </div>
