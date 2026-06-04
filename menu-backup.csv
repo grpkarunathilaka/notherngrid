@@ -1,0 +1,13 @@
+Name,Description,Price,Category,isVegan,isGF,Image
+"Acai Power Bowl","Organic pure acai blended with banana and coconut water, topped with gluten-free almond granola, fresh seasonal berries, toasted coconut flakes, and chia seeds.",17.50,"Breakfast","true","true","assets/images/acai-bowl.png"
+"Wild Mushroom Sourdough","Sautéed forest mushrooms, thyme, truffle oil, whipped vegan ricotta, and wilted spinach served on artisanal sourdough toast.",19.50,"Breakfast","true","false","assets/images/mushroom-sourdough.png"
+"Chilli Folded Eggs","Free-range eggs folded with fresh chilli, spring onion, coriander, and parmesan cheese, served on toasted croissant with house chilli crisp.",18.50,"Breakfast","false","false","assets/images/chilli-eggs.png"
+"Avocado Toast & Goat Feta","Crushed Hass avocado, marinated Persian goat feta, heirloom cherry tomatoes, toasted pepitas, and micro basil on dark rye bread. Gluten-free bread option available.",19.00,"Breakfast","false","true","assets/images/avocado-toast.png"
+"The Grid Wagyu Burger","200g premium wagyu beef patty, double melted cheddar, caramelized onions, butter lettuce, house-made dill burger sauce on a toasted brioche bun, served with rosemary fries.",23.50,"Lunch","false","false","assets/images/wagyu-burger.png"
+"Middle Eastern Falafel Bowl","Crispy house-made herb falafels, warm tri-color quinoa, spiced roasted sweet potato, shredded kale, house beetroot hummus, cucumber salad, lemon tahini dressing.",21.00,"Lunch","true","true","assets/images/falafel-bowl.png"
+"Crispy Barramundi Tacos","Three soft corn tortillas filled with crispy local barramundi, purple cabbage and lime slaw, pickled jalapenos, chipotle crema, and fresh coriander.",22.00,"Lunch","false","true","assets/images/barramundi-tacos.png"
+"Slow Cooked Lamb Salad","12-hour slow-braised Victorian lamb shoulder, wild rocket, fresh mint, cucumber, Danish feta, pomegranate rubies, toasted slivered almonds, dressed in pomegranate vinaigrette.",24.50,"Lunch","false","true","assets/images/lamb-salad.png"
+"Espresso / Short Black","Double shot of our rotating seasonal single-origin espresso. Clean, bright, and fruity notes.",4.50,"Drinks","true","true","assets/images/espresso.png"
+"Flat White / Latte","Our house signature espresso blend extracted smoothly, served with silky texturized milk.",4.80,"Drinks","true","true","assets/images/flat-white.png"
+"Pour Over Filter (V60)","Slow-brewed single estate coffee bean prepared via V60 filter, showcasing delicate tasting notes.",6.50,"Drinks","true","true","assets/images/pour-over.png"
+"Uji Matcha Latte","Ceremonial grade green tea matcha whisked with organic agave syrup, served over steamed creamy oat milk.",6.00,"Drinks","true","true","assets/images/matcha-latte.png"
