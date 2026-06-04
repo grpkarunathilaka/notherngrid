@@ -8,7 +8,7 @@ export interface MenuItem {
   name: string;
   description: string;
   price: number;
-  category: 'Breakfast' | 'Lunch' | 'Drinks';
+  category: string;
   isVegan: boolean;
   isGF: boolean;
   image: string;
@@ -233,11 +233,11 @@ export class MenuCmsService {
     return result;
   }
 
-  private mapCategory(val: string): 'Breakfast' | 'Lunch' | 'Drinks' {
-    const cleanVal = (val || '').trim().toLowerCase();
-    if (cleanVal.includes('breakfast') || cleanVal.includes('morning')) return 'Breakfast';
-    if (cleanVal.includes('lunch') || cleanVal.includes('afternoon') || cleanVal.includes('food')) return 'Lunch';
-    return 'Drinks';
+  private mapCategory(val: string): string {
+    const cleanVal = (val || '').trim();
+    if (!cleanVal) return 'General';
+    // Normalize casing (e.g. 'breakfast' -> 'Breakfast', 'DRINKS' -> 'Drinks')
+    return cleanVal.charAt(0).toUpperCase() + cleanVal.slice(1).toLowerCase();
   }
 
   private parseBoolean(val: string): boolean {

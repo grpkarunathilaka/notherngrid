@@ -30,8 +30,29 @@ export class Menu implements OnInit {
     return items;
   });
 
-  // Unique categories for anchor navigation helper
-  categories: ('Breakfast' | 'Lunch' | 'Drinks')[] = ['Breakfast', 'Lunch', 'Drinks'];
+  // Reactive computed dynamic categories list extracted from menuItems
+  categories = computed(() => {
+    const items = this.filteredItems();
+    const unique = Array.from(new Set(items.map(item => item.category)));
+    
+    // Sort standard categories in chronological order
+    const order: Record<string, number> = { 'breakfast': 1, 'lunch': 2, 'drinks': 3 };
+    
+    return unique.sort((a, b) => {
+      const orderA = order[a.toLowerCase()] || 999;
+      const orderB = order[b.toLowerCase()] || 999;
+      if (orderA !== orderB) return orderA - orderB;
+      return a.localeCompare(b);
+    });
+  });
+
+  getCategoryTime(category: string): string {
+    const clean = category.toLowerCase();
+    if (clean === 'breakfast') return 'Served 7:00 AM - 11:30 AM';
+    if (clean === 'lunch') return 'Served 11:30 AM - Close';
+    if (clean === 'drinks' || clean === 'beverages') return 'Served All Day';
+    return '';
+  }
 
   constructor(
     private schemaService: SchemaService,

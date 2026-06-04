@@ -13,9 +13,13 @@
     <div class="container controls-container">
       <!-- Category Jumps -->
       <nav class="category-jumps">
-        <a href="#breakfast" (click)="scrollToSection('breakfast', $event)" class="jump-link">Breakfast</a>
-        <a href="#lunch" (click)="scrollToSection('lunch', $event)" class="jump-link">Lunch</a>
-        <a href="#drinks" (click)="scrollToSection('drinks', $event)" class="jump-link">Drinks</a>
+        <a 
+          *ngFor="let category of categories()" 
+          [href]="'#' + category.toLowerCase()" 
+          (click)="scrollToSection(category.toLowerCase(), $event)" 
+          class="jump-link">
+          {{ category }}
+        </a>
       </nav>
 
       <!-- Dietary Filter Buttons -->
@@ -77,66 +81,19 @@
 
       <!-- Actual Loaded Menu Content -->
       <div *ngIf="!isLoading()">
-        <!-- Breakfast Category -->
-        <div id="breakfast" class="menu-category-section" *ngIf="hasItemsForCategory('Breakfast')">
+        <!-- Dynamic Categories -->
+        <div 
+          *ngFor="let category of categories()" 
+          [id]="category.toLowerCase()" 
+          class="menu-category-section">
           <div class="category-header">
-            <h2>Breakfast</h2>
-            <span class="category-time">Served 7:00 AM - 11:30 AM</span>
+            <h2>{{ category }}</h2>
+            <span class="category-time" *ngIf="getCategoryTime(category)">
+              {{ getCategoryTime(category) }}
+            </span>
           </div>
           <div class="menu-grid">
-            <div class="menu-item-card glass-panel" *ngFor="let item of getItemsByCategory('Breakfast')">
-              <div class="item-content-wrapper">
-                <div class="item-title-price">
-                  <h3>{{ item.name }}</h3>
-                  <span class="item-price">{{ item.price | currency:'USD':'symbol':'1.2-2' }}</span>
-                </div>
-                <p class="item-description">{{ item.description }}</p>
-                <div class="item-dietary-badges">
-                  <span class="diet-badge vegan" *ngIf="item.isVegan" title="Vegan">VE</span>
-                  <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
-                </div>
-              </div>
-              <div class="item-image-wrapper" *ngIf="item.image" #wrapperEl>
-                <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy" (error)="wrapperEl.style.display = 'none'">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Lunch Category -->
-        <div id="lunch" class="menu-category-section" *ngIf="hasItemsForCategory('Lunch')">
-          <div class="category-header">
-            <h2>Lunch</h2>
-            <span class="category-time">Served 11:30 AM - Close</span>
-          </div>
-          <div class="menu-grid">
-            <div class="menu-item-card glass-panel" *ngFor="let item of getItemsByCategory('Lunch')">
-              <div class="item-content-wrapper">
-                <div class="item-title-price">
-                  <h3>{{ item.name }}</h3>
-                  <span class="item-price">{{ item.price | currency:'USD':'symbol':'1.2-2' }}</span>
-                </div>
-                <p class="item-description">{{ item.description }}</p>
-                <div class="item-dietary-badges">
-                  <span class="diet-badge vegan" *ngIf="item.isVegan" title="Vegan">VE</span>
-                  <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
-                </div>
-              </div>
-              <div class="item-image-wrapper" *ngIf="item.image" #wrapperEl>
-                <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy" (error)="wrapperEl.style.display = 'none'">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Drinks Category -->
-        <div id="drinks" class="menu-category-section" *ngIf="hasItemsForCategory('Drinks')">
-          <div class="category-header">
-            <h2>Drinks & Espresso</h2>
-            <span class="category-time">Served All Day</span>
-          </div>
-          <div class="menu-grid">
-            <div class="menu-item-card glass-panel" *ngFor="let item of getItemsByCategory('Drinks')">
+            <div class="menu-item-card glass-panel" *ngFor="let item of getItemsByCategory(category)">
               <div class="item-content-wrapper">
                 <div class="item-title-price">
                   <h3>{{ item.name }}</h3>
