@@ -40,6 +40,9 @@ jobs:
         # if it is different (case-sensitive).
         run: npx ng build --configuration production --base-href /notherngrid/
 
+      - name: Copy index.html to 404.html
+        run: cp dist/melbourne-restaurant/browser/index.html dist/melbourne-restaurant/browser/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
