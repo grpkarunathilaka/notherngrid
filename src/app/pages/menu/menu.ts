@@ -159,4 +159,19 @@ export class Menu implements OnInit {
   hasItemsForCategory(category: string): boolean {
     return this.getItemsByCategory(category).length > 0;
   }
+
+  scrollToSection(id: string, event: Event): void {
+    event.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 130; // Offset for the header and sticky controls
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
 }

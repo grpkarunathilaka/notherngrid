@@ -13,9 +13,9 @@
     <div class="container controls-container">
       <!-- Category Jumps -->
       <nav class="category-jumps">
-        <a href="#breakfast" class="jump-link">Breakfast</a>
-        <a href="#lunch" class="jump-link">Lunch</a>
-        <a href="#drinks" class="jump-link">Drinks</a>
+        <a href="#breakfast" (click)="scrollToSection('breakfast', $event)" class="jump-link">Breakfast</a>
+        <a href="#lunch" (click)="scrollToSection('lunch', $event)" class="jump-link">Lunch</a>
+        <a href="#drinks" (click)="scrollToSection('drinks', $event)" class="jump-link">Drinks</a>
       </nav>
 
       <!-- Dietary Filter Buttons -->
