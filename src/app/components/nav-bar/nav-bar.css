@@ -88,6 +88,10 @@
 
 .nav-links a.nav-cta {
   color: var(--text-white);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
 /* Mobile Toggle */
