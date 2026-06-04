@@ -9,6 +9,7 @@ interface MenuItem {
   category: 'Breakfast' | 'Lunch' | 'Drinks';
   isVegan: boolean;
   isGF: boolean; // Gluten-Free
+  image: string;
 }
 
 @Component({
@@ -29,7 +30,8 @@ export class Menu implements OnInit {
       price: 17.50,
       category: 'Breakfast',
       isVegan: true,
-      isGF: true
+      isGF: true,
+      image: 'assets/images/acai-bowl.png'
     },
     {
       name: 'Wild Mushroom Sourdough',
@@ -37,7 +39,8 @@ export class Menu implements OnInit {
       price: 19.50,
       category: 'Breakfast',
       isVegan: true,
-      isGF: false
+      isGF: false,
+      image: 'assets/images/mushroom-sourdough.png'
     },
     {
       name: 'Chilli Folded Eggs',
@@ -45,7 +48,8 @@ export class Menu implements OnInit {
       price: 18.50,
       category: 'Breakfast',
       isVegan: false,
-      isGF: false
+      isGF: false,
+      image: 'assets/images/chilli-eggs.png'
     },
     {
       name: 'Avocado Toast & Goat Feta',
@@ -53,7 +57,8 @@ export class Menu implements OnInit {
       price: 19.00,
       category: 'Breakfast',
       isVegan: false,
-      isGF: true
+      isGF: true,
+      image: 'assets/images/avocado-toast.png'
     },
     
     // Lunch items
@@ -63,7 +68,8 @@ export class Menu implements OnInit {
       price: 23.50,
       category: 'Lunch',
       isVegan: false,
-      isGF: false
+      isGF: false,
+      image: 'assets/images/wagyu-burger.png'
     },
     {
       name: 'Middle Eastern Falafel Bowl',
@@ -71,7 +77,8 @@ export class Menu implements OnInit {
       price: 21.00,
       category: 'Lunch',
       isVegan: true,
-      isGF: true
+      isGF: true,
+      image: 'assets/images/falafel-bowl.png'
     },
     {
       name: 'Crispy Barramundi Tacos',
@@ -79,7 +86,8 @@ export class Menu implements OnInit {
       price: 22.00,
       category: 'Lunch',
       isVegan: false,
-      isGF: true
+      isGF: true,
+      image: 'assets/images/barramundi-tacos.png'
     },
     {
       name: 'Slow Cooked Lamb Salad',
@@ -87,7 +95,8 @@ export class Menu implements OnInit {
       price: 24.50,
       category: 'Lunch',
       isVegan: false,
-      isGF: true
+      isGF: true,
+      image: 'assets/images/lamb-salad.png'
     },
 
     // Drinks items
@@ -97,15 +106,17 @@ export class Menu implements OnInit {
       price: 4.50,
       category: 'Drinks',
       isVegan: true,
-      isGF: true
+      isGF: true,
+      image: 'assets/images/espresso.png'
     },
     {
       name: 'Flat White / Latte',
       description: 'Our house signature espresso blend extracted smoothly, served with silky texturized milk.',
       price: 4.80,
       category: 'Drinks',
-      isVegan: true, // Assuming choice of plant-based milks makes it vegan
-      isGF: true
+      isVegan: true,
+      isGF: true,
+      image: 'assets/images/flat-white.png'
     },
     {
       name: 'Pour Over Filter (V60)',
@@ -113,7 +124,8 @@ export class Menu implements OnInit {
       price: 6.50,
       category: 'Drinks',
       isVegan: true,
-      isGF: true
+      isGF: true,
+      image: 'assets/images/pour-over.png'
     },
     {
       name: 'Uji Matcha Latte',
@@ -121,7 +133,8 @@ export class Menu implements OnInit {
       price: 6.00,
       category: 'Drinks',
       isVegan: true,
-      isGF: true
+      isGF: true,
+      image: 'assets/images/matcha-latte.png'
     }
   ]);
 
