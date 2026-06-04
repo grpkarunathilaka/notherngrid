@@ -143,7 +143,14 @@ export class MenuCmsService {
       return of(this.fallbackMenu);
     }
 
-    const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
+    let csvUrl = '';
+    if (sheetId.startsWith('http://') || sheetId.startsWith('https://')) {
+      csvUrl = sheetId;
+    } else if (sheetId.startsWith('2PACX-')) {
+      csvUrl = `https://docs.google.com/spreadsheets/d/e/${sheetId}/pub?output=csv`;
+    } else {
+      csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
+    }
 
     return this.http.get(csvUrl, { responseType: 'text' }).pipe(
       map(csvText => {
