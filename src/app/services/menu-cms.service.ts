@@ -204,7 +204,7 @@ export class MenuCmsService {
           category: this.mapCategory(row.category),
           isVegan: this.parseBoolean(row.isvegan),
           isGF: this.parseBoolean(row.isgf),
-          image: row.image || 'assets/images/placeholder.png'
+          image: row.image || ''
         });
       }
     }

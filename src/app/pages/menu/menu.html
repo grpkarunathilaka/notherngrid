@@ -96,8 +96,8 @@
                   <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
                 </div>
               </div>
-              <div class="item-image-wrapper">
-                <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy">
+              <div class="item-image-wrapper" *ngIf="item.image" #wrapperEl>
+                <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy" (error)="wrapperEl.style.display = 'none'">
               </div>
             </div>
           </div>
@@ -122,8 +122,8 @@
                   <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
                 </div>
               </div>
-              <div class="item-image-wrapper">
-                <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy">
+              <div class="item-image-wrapper" *ngIf="item.image" #wrapperEl>
+                <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy" (error)="wrapperEl.style.display = 'none'">
               </div>
             </div>
           </div>
@@ -148,8 +148,8 @@
                   <span class="diet-badge gf" *ngIf="item.isGF" title="Gluten Free">GF</span>
                 </div>
               </div>
-              <div class="item-image-wrapper">
-                <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy">
+              <div class="item-image-wrapper" *ngIf="item.image" #wrapperEl>
+                <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy" (error)="wrapperEl.style.display = 'none'">
               </div>
             </div>
           </div>
